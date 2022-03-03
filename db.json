@@ -1,0 +1,28 @@
+{
+  "feedback": [
+    {
+      "id": 1,
+      "rating": 10,
+      "text": "This is the first text from the db.json server api from my mock-end"
+    },
+    {
+      "id": 2,
+      "rating": 1,
+      "text": "This is the second ok, second! text from the db.json server api from my mock-end"
+    },
+    {
+      "id": 3,
+      "rating": 2,
+      "text": "This is the third and perhaps the current last text from the db.json server api from my mock-end"
+    },
+    {
+      "text": "adffeqa23rgfafggadhga",
+      "id": 4
+    },
+    {
+      "rating": 6,
+      "text": "Kate is such a booger baby today!",
+      "id": 5
+    }
+  ]
+}

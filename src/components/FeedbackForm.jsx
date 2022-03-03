@@ -1,19 +1,29 @@
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import Card from './shared/Card'
 import Button from './shared/Button'
 import RatingSelect from './RatingSelect'
+import FeedbackContext from '../context/FeedbackContext'
 
-function FeedbackForm({ handleAdd }) {
+function FeedbackForm() {
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true)
   const [message, setMessage] = useState('')
 
-  const handleTextChange = (e) => {
-    if (text === '') {
+  const { addFeedback, feedbackEdit, updateFeedback } =
+    useContext(FeedbackContext)
+
+  useEffect(() => {
+    setBtnDisabled(false)
+    setText(feedbackEdit.item.text)
+    setRating(feedbackEdit.item.rating)
+  }, [feedbackEdit])
+
+  const handleTextChange = ({ target: { value } }) => {
+    if (value === '') {
       setBtnDisabled(true)
       setMessage(null)
-    } else if (text !== '' && text.trim().length <= 10) {
+    } else if (value.trim().length < 10) {
       setBtnDisabled(true)
       setMessage(
         <div>
@@ -26,7 +36,7 @@ function FeedbackForm({ handleAdd }) {
       setBtnDisabled(false)
       setMessage(null)
     }
-    setText(e.target.value)
+    setText(value)
   }
 
   const handleSubmit = (e) => {
@@ -36,7 +46,11 @@ function FeedbackForm({ handleAdd }) {
         rating,
         text,
       }
-      handleAdd(newFeedback)
+      if (feedbackEdit.edit === true) {
+        updateFeedback(feedbackEdit.item.id, newFeedback)
+      } else {
+        addFeedback(newFeedback)
+      }
 
       setText('')
     }
@@ -50,9 +64,9 @@ function FeedbackForm({ handleAdd }) {
           <RatingSelect select={(rating) => setRating(rating)} />
           <div className='input-group'>
             <input
-              onChange={handleTextChange}
               type='text'
               placeholder='Write us a review'
+              onChange={handleTextChange}
               value={text}
             />
             <Button isDisabled={btnDisabled} type='submit'>
