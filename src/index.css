@@ -118,6 +118,15 @@ header {
   border-radius: 8px;
 }
 
+.textarea-group {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #ccc;
+  padding: 8px 10px;
+  border-radius: 8px;
+  position: relative;
+}
+
 input {
   flex-grow: 4;
   border: none;
