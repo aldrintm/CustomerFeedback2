@@ -7,19 +7,21 @@ const FeedbackContext = createContext()
 export const FeedbackProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true)
 
-  // the value that will be given to the context
+  // the json value that will be given to the context
   const [feedback, setFeedback] = useState([])
 
+  // this is for editing a feedback
   const [feedbackEdit, setFeedbackEdit] = useState({
     item: {},
     edit: false,
   })
 
+  // this
   useEffect(() => {
     fetchFeedback()
   }, [])
 
-  //Fetch feedback
+  //Fetch feedback from sb.json - Async Await 
   const fetchFeedback = async () => {
     const response = await fetch(`/feedback?_sort=id&_order=desc`)
     const data = await response.json()

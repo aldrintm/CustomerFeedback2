@@ -3,7 +3,7 @@ function Header() {
     <>
       <header>
         <div className='container'>
-          <h1>Customer Review</h1>
+          <h1>Plamar USA - Customer Review</h1>
         </div>
       </header>
     </>

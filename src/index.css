@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #202142;
+  background-color: lightslategray;
   color: #fff;
   line-height: 1.6;
 }
@@ -97,7 +97,7 @@ header {
 
 .rating li:hover,
 .num-display {
-  background: #ff6a95;
+  background:tomato;
   color: #fff;
 }
 
@@ -106,7 +106,7 @@ header {
 }
 
 [type='radio']:checked ~ label {
-  background: #ff6a95;
+  background: tomato;
   color: #fff;
 }
 
@@ -203,12 +203,13 @@ input:focus {
   padding-top: 10px;
   text-align: center;
   color: rebeccapurple;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.3rem;
 }
 
 .about-link {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+  position: relative;
+  text-align: right;
   color: #fff;
   cursor: pointer;
 }
@@ -245,4 +246,20 @@ input:focus {
   .input-group input {
     width: 80%;
   }
+}
+
+h5 {
+  font-size: 2rem;
+  margin: auto;
+  align-items: center;
+}
+
+.star {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  color: tomato;
+  font-size: 25px;
 }
