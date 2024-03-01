@@ -1,3 +1,9 @@
 {
-  "feedback": []
+  "feedback": [
+    {
+      "rating": 9,
+      "text": "Company is ok",
+      "id": 1
+    }
+  ]
 }
